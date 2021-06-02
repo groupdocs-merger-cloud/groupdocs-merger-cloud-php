@@ -1,7 +1,7 @@
 <?php
 /*
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="MultiDocumentResult.php">
+ * <copyright company="Aspose Pty Ltd" file="ImportOptions.php">
  *   Copyright (c) 2003-2021 Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -27,16 +27,14 @@
  */
 
 namespace GroupDocs\Merger\Model;
-
-use \ArrayAccess;
 use \GroupDocs\Merger\ObjectSerializer;
 
 /*
- * MultiDocumentResult
+ * ImportOptions
  *
- * @description Describes result that contains multiple documents
+ * @description Import API options
  */
-class MultiDocumentResult implements ArrayAccess
+class ImportOptions extends Options 
 {
     const DISCRIMINATOR = null;
 
@@ -45,7 +43,7 @@ class MultiDocumentResult implements ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = "MultiDocumentResult";
+    protected static $swaggerModelName = "ImportOptions";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
@@ -53,7 +51,7 @@ class MultiDocumentResult implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'documents' => '\GroupDocs\Merger\Model\DocumentResult[]'
+        'attachments' => 'string[]'
     ];
 
     /*
@@ -62,7 +60,7 @@ class MultiDocumentResult implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'documents' => null
+        'attachments' => null
     ];
 
     /*
@@ -72,7 +70,7 @@ class MultiDocumentResult implements ArrayAccess
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     /*
@@ -82,7 +80,7 @@ class MultiDocumentResult implements ArrayAccess
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /*
@@ -92,7 +90,7 @@ class MultiDocumentResult implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'documents' => 'Documents'
+        'attachments' => 'Attachments'
     ];
 
     /*
@@ -101,7 +99,7 @@ class MultiDocumentResult implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'documents' => 'setDocuments'
+        'attachments' => 'setAttachments'
     ];
 
     /*
@@ -110,7 +108,7 @@ class MultiDocumentResult implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'documents' => 'getDocuments'
+        'attachments' => 'getAttachments'
     ];
 
     /*
@@ -121,7 +119,7 @@ class MultiDocumentResult implements ArrayAccess
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /*
@@ -131,7 +129,7 @@ class MultiDocumentResult implements ArrayAccess
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /*
@@ -141,7 +139,7 @@ class MultiDocumentResult implements ArrayAccess
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /*
@@ -158,12 +156,6 @@ class MultiDocumentResult implements ArrayAccess
 
     
 
-    /*
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /*
      * Constructor
@@ -173,7 +165,9 @@ class MultiDocumentResult implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['documents'] = isset($data['documents']) ? $data['documents'] : null;
+        parent::__construct($data);
+
+        $this->container['attachments'] = isset($data['attachments']) ? $data['attachments'] : null;
     }
 
     /*
@@ -183,7 +177,7 @@ class MultiDocumentResult implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
         return $invalidProperties;
     }
@@ -196,31 +190,34 @@ class MultiDocumentResult implements ArrayAccess
      */
     public function valid()
     {
+        if (!parent::valid()) {
+            return false;
+        }
 
         return true;
     }
 
 
     /*
-     * Gets documents
+     * Gets attachments
      *
-     * @return \GroupDocs\Merger\Model\DocumentResult[]
+     * @return string[]
      */
-    public function getDocuments()
+    public function getAttachments()
     {
-        return $this->container['documents'];
+        return $this->container['attachments'];
     }
 
     /*
-     * Sets documents
+     * Sets attachments
      *
-     * @param \GroupDocs\Merger\Model\DocumentResult[] $documents Documents collection
+     * @param string[] $attachments List of files paths to import as attachments
      *
      * @return $this
      */
-    public function setDocuments($documents)
+    public function setAttachments($attachments)
     {
-        $this->container['documents'] = $documents;
+        $this->container['attachments'] = $attachments;
 
         return $this;
     }

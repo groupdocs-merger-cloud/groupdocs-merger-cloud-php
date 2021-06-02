@@ -2,7 +2,7 @@
 /**
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose Pty Ltd" file="MergerGetInfoApiTest.php">
-*   Copyright (c) 2003-2019 Aspose Pty Ltd
+*   Copyright (c) 2003-2021 Aspose Pty Ltd
 * </copyright>
 * <summary>
 *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -123,5 +123,38 @@ class DocumentApiTest extends BaseApiTest
 
         $this->assertFalse(empty($response));
         $this->assertEquals($options->getOutputPath(), $response->getPath());
-    }     
+    }   
+    
+    public function testJoinCrossFormat()
+    {
+        $item1 = new Model\JoinItem();
+        $item1->setFileInfo(Internal\TestFiles::getFileOnePageProtectedPdf()->ToFileInfo());
+
+        $item2 = new Model\JoinItem();
+        $item2->setFileInfo(Internal\TestFiles::getFileFourPagesDocx()->ToFileInfo());                
+        
+        $options = new Model\JoinOptions();
+        $options->setJoinItems([$item1, $item2]);
+        $options->setOutputPath(self::$outputPath . "joined.pdf");
+
+        $request = new Requests\joinRequest($options);       
+        $response = self::$documentApi->join($request);
+
+        $this->assertFalse(empty($response));
+        $this->assertEquals($options->getOutputPath(), $response->getPath());
+    }   
+    
+    public function testImport()
+    {
+        $options = new Model\ImportOptions();
+        $options->setFileInfo(Internal\TestFiles::getFileOnePageProtectedPdf()->ToFileInfo());
+        $options->setAttachments([Internal\TestFiles::getFileTxt()->ToFileInfo()->getFilePath()]);
+        $options->setOutputPath(self::$outputPath . "with-attachment.pdf");
+
+        $request = new Requests\importRequest($options);       
+        $response = self::$documentApi->import($request);
+
+        $this->assertFalse(empty($response));
+        $this->assertEquals($options->getOutputPath(), $response->getPath());
+    }    
 }
