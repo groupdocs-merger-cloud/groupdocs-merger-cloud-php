@@ -2,7 +2,7 @@
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="JoinItem.php">
- *   Copyright (c) 2003-2021 Aspose Pty Ltd
+ *   Copyright (c) 2003-2022 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -57,7 +57,8 @@ class JoinItem implements ArrayAccess
         'pages' => 'int[]',
         'startPageNumber' => 'int',
         'endPageNumber' => 'int',
-        'rangeMode' => 'string'
+        'rangeMode' => 'string',
+        'wordJoinMode' => 'string'
     ];
 
     /*
@@ -70,7 +71,8 @@ class JoinItem implements ArrayAccess
         'pages' => 'int32',
         'startPageNumber' => 'int32',
         'endPageNumber' => 'int32',
-        'rangeMode' => null
+        'rangeMode' => null,
+        'wordJoinMode' => null
     ];
 
     /*
@@ -104,7 +106,8 @@ class JoinItem implements ArrayAccess
         'pages' => 'Pages',
         'startPageNumber' => 'StartPageNumber',
         'endPageNumber' => 'EndPageNumber',
-        'rangeMode' => 'RangeMode'
+        'rangeMode' => 'RangeMode',
+        'wordJoinMode' => 'WordJoinMode'
     ];
 
     /*
@@ -117,7 +120,8 @@ class JoinItem implements ArrayAccess
         'pages' => 'setPages',
         'startPageNumber' => 'setStartPageNumber',
         'endPageNumber' => 'setEndPageNumber',
-        'rangeMode' => 'setRangeMode'
+        'rangeMode' => 'setRangeMode',
+        'wordJoinMode' => 'setWordJoinMode'
     ];
 
     /*
@@ -130,7 +134,8 @@ class JoinItem implements ArrayAccess
         'pages' => 'getPages',
         'startPageNumber' => 'getStartPageNumber',
         'endPageNumber' => 'getEndPageNumber',
-        'rangeMode' => 'getRangeMode'
+        'rangeMode' => 'getRangeMode',
+        'wordJoinMode' => 'getWordJoinMode'
     ];
 
     /*
@@ -177,6 +182,8 @@ class JoinItem implements ArrayAccess
     const RANGE_MODE_ALL_PAGES = 'AllPages';
     const RANGE_MODE_ODD_PAGES = 'OddPages';
     const RANGE_MODE_EVEN_PAGES = 'EvenPages';
+    const WORD_JOIN_MODE__DEFAULT = 'Default';
+    const WORD_JOIN_MODE_CONTINUOUS = 'Continuous';
     
 
     
@@ -191,6 +198,19 @@ class JoinItem implements ArrayAccess
             self::RANGE_MODE_ALL_PAGES,
             self::RANGE_MODE_ODD_PAGES,
             self::RANGE_MODE_EVEN_PAGES,
+        ];
+    }
+    
+    /*
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getWordJoinModeAllowableValues()
+    {
+        return [
+            self::WORD_JOIN_MODE__DEFAULT,
+            self::WORD_JOIN_MODE_CONTINUOUS,
         ];
     }
     
@@ -215,6 +235,7 @@ class JoinItem implements ArrayAccess
         $this->container['startPageNumber'] = isset($data['startPageNumber']) ? $data['startPageNumber'] : null;
         $this->container['endPageNumber'] = isset($data['endPageNumber']) ? $data['endPageNumber'] : null;
         $this->container['rangeMode'] = isset($data['rangeMode']) ? $data['rangeMode'] : null;
+        $this->container['wordJoinMode'] = isset($data['wordJoinMode']) ? $data['wordJoinMode'] : null;
     }
 
     /*
@@ -243,6 +264,17 @@ class JoinItem implements ArrayAccess
             );
         }
 
+        if ($this->container['wordJoinMode'] === null) {
+            $invalidProperties[] = "'wordJoinMode' can't be null";
+        }
+        $allowedValues = $this->getWordJoinModeAllowableValues();
+        if (!in_array($this->container['wordJoinMode'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'wordJoinMode', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -266,6 +298,13 @@ class JoinItem implements ArrayAccess
         }
         $allowedValues = $this->getRangeModeAllowableValues();
         if (!in_array($this->container['rangeMode'], $allowedValues)) {
+            return false;
+        }
+        if ($this->container['wordJoinMode'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getWordJoinModeAllowableValues();
+        if (!in_array($this->container['wordJoinMode'], $allowedValues)) {
             return false;
         }
         return true;
@@ -393,6 +432,35 @@ class JoinItem implements ArrayAccess
         }
 			
         $this->container['rangeMode'] = $rangeMode;
+
+        return $this;
+    }
+
+    /*
+     * Gets wordJoinMode
+     *
+     * @return string
+     */
+    public function getWordJoinMode()
+    {
+        return $this->container['wordJoinMode'];
+    }
+
+    /*
+     * Sets wordJoinMode
+     *
+     * @param string $wordJoinMode Allows to join word documents without empty space between documents
+     *
+     * @return $this
+     */
+    public function setWordJoinMode($wordJoinMode)
+    {
+        $allowedValues = $this->getWordJoinModeAllowableValues();
+        if ((!is_numeric($wordJoinMode) && !in_array($wordJoinMode, $allowedValues)) || (is_numeric($wordJoinMode) && !in_array($allowedValues[$wordJoinMode], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'wordJoinMode', must be one of '%s'", implode("', '", $allowedValues)));
+        }
+			
+        $this->container['wordJoinMode'] = $wordJoinMode;
 
         return $this;
     }
