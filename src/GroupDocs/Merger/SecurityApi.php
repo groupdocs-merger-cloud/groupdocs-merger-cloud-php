@@ -2,7 +2,7 @@
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="SecurityApi.php">
- *   Copyright (c) 2003-2022 Aspose Pty Ltd
+ *   Copyright (c) 2003-2023 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1292,7 +1292,7 @@ class SecurityApi
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="addPasswordRequest.php">
- *   Copyright (c) 2003-2022 Aspose Pty Ltd
+ *   Copyright (c) 2003-2023 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1341,7 +1341,7 @@ class addPasswordRequest
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="checkPasswordRequest.php">
- *   Copyright (c) 2003-2022 Aspose Pty Ltd
+ *   Copyright (c) 2003-2023 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1404,7 +1404,7 @@ class checkPasswordRequest
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="removePasswordRequest.php">
- *   Copyright (c) 2003-2022 Aspose Pty Ltd
+ *   Copyright (c) 2003-2023 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1453,7 +1453,7 @@ class removePasswordRequest
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="updatePasswordRequest.php">
- *   Copyright (c) 2003-2022 Aspose Pty Ltd
+ *   Copyright (c) 2003-2023 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy

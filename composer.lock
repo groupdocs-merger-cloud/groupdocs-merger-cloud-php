@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c8798b00339ef9622a278b715c6f1ffd",
+    "content-hash": "0cb195cf2fd0ae1a0fd877f98ab7d9d4",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -1219,6 +1219,7 @@
                 "issues": "https://github.com/PHP-CS-Fixer/diff/issues",
                 "source": "https://github.com/PHP-CS-Fixer/diff/tree/v1.3.1"
             },
+            "abandoned": true,
             "time": "2020-10-14T08:39:05+00:00"
         },
         {
@@ -2684,6 +2685,7 @@
                     "type": "tidelift"
                 }
             ],
+            "abandoned": "symfony/error-handler",
             "time": "2020-10-24T10:57:07+00:00"
         },
         {

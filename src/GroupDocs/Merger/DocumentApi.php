@@ -2,7 +2,7 @@
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="DocumentApi.php">
- *   Copyright (c) 2003-2022 Aspose Pty Ltd
+ *   Copyright (c) 2003-2023 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1269,7 +1269,7 @@ class DocumentApi
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="importRequest.php">
- *   Copyright (c) 2003-2022 Aspose Pty Ltd
+ *   Copyright (c) 2003-2023 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1318,7 +1318,7 @@ class importRequest
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="joinRequest.php">
- *   Copyright (c) 2003-2022 Aspose Pty Ltd
+ *   Copyright (c) 2003-2023 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1367,7 +1367,7 @@ class joinRequest
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="previewRequest.php">
- *   Copyright (c) 2003-2022 Aspose Pty Ltd
+ *   Copyright (c) 2003-2023 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1416,7 +1416,7 @@ class previewRequest
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="splitRequest.php">
- *   Copyright (c) 2003-2022 Aspose Pty Ltd
+ *   Copyright (c) 2003-2023 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy

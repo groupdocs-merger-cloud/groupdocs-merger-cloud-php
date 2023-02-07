@@ -2,7 +2,7 @@
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="JoinItem.php">
- *   Copyright (c) 2003-2022 Aspose Pty Ltd
+ *   Copyright (c) 2003-2023 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -34,7 +34,7 @@ use \GroupDocs\Merger\ObjectSerializer;
 /*
  * JoinItem
  *
- * @description Describes document for join operation
+ * @description Describes document for join operation.
  */
 class JoinItem implements ArrayAccess
 {
@@ -58,7 +58,8 @@ class JoinItem implements ArrayAccess
         'startPageNumber' => 'int',
         'endPageNumber' => 'int',
         'rangeMode' => 'string',
-        'wordJoinMode' => 'string'
+        'wordJoinMode' => 'string',
+        'imageJoinMode' => 'string'
     ];
 
     /*
@@ -72,7 +73,8 @@ class JoinItem implements ArrayAccess
         'startPageNumber' => 'int32',
         'endPageNumber' => 'int32',
         'rangeMode' => null,
-        'wordJoinMode' => null
+        'wordJoinMode' => null,
+        'imageJoinMode' => null
     ];
 
     /*
@@ -107,7 +109,8 @@ class JoinItem implements ArrayAccess
         'startPageNumber' => 'StartPageNumber',
         'endPageNumber' => 'EndPageNumber',
         'rangeMode' => 'RangeMode',
-        'wordJoinMode' => 'WordJoinMode'
+        'wordJoinMode' => 'WordJoinMode',
+        'imageJoinMode' => 'ImageJoinMode'
     ];
 
     /*
@@ -121,7 +124,8 @@ class JoinItem implements ArrayAccess
         'startPageNumber' => 'setStartPageNumber',
         'endPageNumber' => 'setEndPageNumber',
         'rangeMode' => 'setRangeMode',
-        'wordJoinMode' => 'setWordJoinMode'
+        'wordJoinMode' => 'setWordJoinMode',
+        'imageJoinMode' => 'setImageJoinMode'
     ];
 
     /*
@@ -135,7 +139,8 @@ class JoinItem implements ArrayAccess
         'startPageNumber' => 'getStartPageNumber',
         'endPageNumber' => 'getEndPageNumber',
         'rangeMode' => 'getRangeMode',
-        'wordJoinMode' => 'getWordJoinMode'
+        'wordJoinMode' => 'getWordJoinMode',
+        'imageJoinMode' => 'getImageJoinMode'
     ];
 
     /*
@@ -184,6 +189,8 @@ class JoinItem implements ArrayAccess
     const RANGE_MODE_EVEN_PAGES = 'EvenPages';
     const WORD_JOIN_MODE__DEFAULT = 'Default';
     const WORD_JOIN_MODE_CONTINUOUS = 'Continuous';
+    const IMAGE_JOIN_MODE_HORIZONTAL = 'Horizontal';
+    const IMAGE_JOIN_MODE_VERTICAL = 'Vertical';
     
 
     
@@ -214,6 +221,19 @@ class JoinItem implements ArrayAccess
         ];
     }
     
+    /*
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getImageJoinModeAllowableValues()
+    {
+        return [
+            self::IMAGE_JOIN_MODE_HORIZONTAL,
+            self::IMAGE_JOIN_MODE_VERTICAL,
+        ];
+    }
+    
 
     /*
      * Associative array for storing property values
@@ -236,6 +256,7 @@ class JoinItem implements ArrayAccess
         $this->container['endPageNumber'] = isset($data['endPageNumber']) ? $data['endPageNumber'] : null;
         $this->container['rangeMode'] = isset($data['rangeMode']) ? $data['rangeMode'] : null;
         $this->container['wordJoinMode'] = isset($data['wordJoinMode']) ? $data['wordJoinMode'] : null;
+        $this->container['imageJoinMode'] = isset($data['imageJoinMode']) ? $data['imageJoinMode'] : null;
     }
 
     /*
@@ -275,6 +296,17 @@ class JoinItem implements ArrayAccess
             );
         }
 
+        if ($this->container['imageJoinMode'] === null) {
+            $invalidProperties[] = "'imageJoinMode' can't be null";
+        }
+        $allowedValues = $this->getImageJoinModeAllowableValues();
+        if (!in_array($this->container['imageJoinMode'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'imageJoinMode', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -307,6 +339,13 @@ class JoinItem implements ArrayAccess
         if (!in_array($this->container['wordJoinMode'], $allowedValues)) {
             return false;
         }
+        if ($this->container['imageJoinMode'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getImageJoinModeAllowableValues();
+        if (!in_array($this->container['imageJoinMode'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
@@ -324,7 +363,7 @@ class JoinItem implements ArrayAccess
     /*
      * Sets fileInfo
      *
-     * @param \GroupDocs\Merger\Model\FileInfo $fileInfo File info
+     * @param \GroupDocs\Merger\Model\FileInfo $fileInfo File info.
      *
      * @return $this
      */
@@ -449,7 +488,7 @@ class JoinItem implements ArrayAccess
     /*
      * Sets wordJoinMode
      *
-     * @param string $wordJoinMode Allows to join word documents without empty space between documents
+     * @param string $wordJoinMode Allows to join word documents without empty space between documents.
      *
      * @return $this
      */
@@ -461,6 +500,35 @@ class JoinItem implements ArrayAccess
         }
 			
         $this->container['wordJoinMode'] = $wordJoinMode;
+
+        return $this;
+    }
+
+    /*
+     * Gets imageJoinMode
+     *
+     * @return string
+     */
+    public function getImageJoinMode()
+    {
+        return $this->container['imageJoinMode'];
+    }
+
+    /*
+     * Sets imageJoinMode
+     *
+     * @param string $imageJoinMode Possible modes for the image joining.
+     *
+     * @return $this
+     */
+    public function setImageJoinMode($imageJoinMode)
+    {
+        $allowedValues = $this->getImageJoinModeAllowableValues();
+        if ((!is_numeric($imageJoinMode) && !in_array($imageJoinMode, $allowedValues)) || (is_numeric($imageJoinMode) && !in_array($allowedValues[$imageJoinMode], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'imageJoinMode', must be one of '%s'", implode("', '", $allowedValues)));
+        }
+			
+        $this->container['imageJoinMode'] = $imageJoinMode;
 
         return $this;
     }
