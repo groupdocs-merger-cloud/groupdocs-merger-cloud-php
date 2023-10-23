@@ -128,13 +128,22 @@ class DocumentApi
                 $responseBody = $e->getResponse()->getBody();
                 $content = $responseBody->getContents();
                 $error = json_decode($content);
-
-                $errorCode = $e->getCode();
-                $errorMessage = $error != null && $error->message != null
-                    ? $error->message
-                    : ($error != null && $error->error != null && $error->error->message != null ? $error->error->message : $e->getMessage());
-                
-                throw new ApiException($errorMessage, $errorCode);
+                if(property_exists($error, 'message')) {
+                    $errorCode = $e->getCode();
+                    $errorMessage = $error != null && $error->message != null
+                        ? $error->message
+                        : $e->getMessage();
+                    
+                    throw new ApiException($errorMessage, $errorCode);
+                }
+                else {                    
+                    $errorCode = $e->getCode();
+                    $errorMessage = $error != null && $error->error->message != null
+                        ? $error->error->message
+                        : $e->getMessage();
+                    
+                    throw new ApiException($errorMessage, $errorCode);
+                }
             }
 
             $statusCode = $response->getStatusCode();
@@ -398,13 +407,22 @@ class DocumentApi
                 $responseBody = $e->getResponse()->getBody();
                 $content = $responseBody->getContents();
                 $error = json_decode($content);
-
-                $errorCode = $e->getCode();
-                $errorMessage = $error != null && $error->message != null
-                    ? $error->message
-                    : ($error != null && $error->error != null && $error->error->message != null ? $error->error->message : $e->getMessage());
-                
-                throw new ApiException($errorMessage, $errorCode);
+                if(property_exists($error, 'message')) {
+                    $errorCode = $e->getCode();
+                    $errorMessage = $error != null && $error->message != null
+                        ? $error->message
+                        : $e->getMessage();
+                    
+                    throw new ApiException($errorMessage, $errorCode);
+                }
+                else {                    
+                    $errorCode = $e->getCode();
+                    $errorMessage = $error != null && $error->error->message != null
+                        ? $error->error->message
+                        : $e->getMessage();
+                    
+                    throw new ApiException($errorMessage, $errorCode);
+                }
             }
 
             $statusCode = $response->getStatusCode();
@@ -668,13 +686,22 @@ class DocumentApi
                 $responseBody = $e->getResponse()->getBody();
                 $content = $responseBody->getContents();
                 $error = json_decode($content);
-
-                $errorCode = $e->getCode();
-                $errorMessage = $error != null && $error->message != null
-                    ? $error->message
-                    : ($error != null && $error->error != null && $error->error->message != null ? $error->error->message : $e->getMessage());
-                
-                throw new ApiException($errorMessage, $errorCode);
+                if(property_exists($error, 'message')) {
+                    $errorCode = $e->getCode();
+                    $errorMessage = $error != null && $error->message != null
+                        ? $error->message
+                        : $e->getMessage();
+                    
+                    throw new ApiException($errorMessage, $errorCode);
+                }
+                else {                    
+                    $errorCode = $e->getCode();
+                    $errorMessage = $error != null && $error->error->message != null
+                        ? $error->error->message
+                        : $e->getMessage();
+                    
+                    throw new ApiException($errorMessage, $errorCode);
+                }
             }
 
             $statusCode = $response->getStatusCode();
@@ -938,13 +965,22 @@ class DocumentApi
                 $responseBody = $e->getResponse()->getBody();
                 $content = $responseBody->getContents();
                 $error = json_decode($content);
-
-                $errorCode = $e->getCode();
-                $errorMessage = $error != null && $error->message != null
-                    ? $error->message
-                    : ($error != null && $error->error != null && $error->error->message != null ? $error->error->message : $e->getMessage());
-                
-                throw new ApiException($errorMessage, $errorCode);
+                if(property_exists($error, 'message')) {
+                    $errorCode = $e->getCode();
+                    $errorMessage = $error != null && $error->message != null
+                        ? $error->message
+                        : $e->getMessage();
+                    
+                    throw new ApiException($errorMessage, $errorCode);
+                }
+                else {                    
+                    $errorCode = $e->getCode();
+                    $errorMessage = $error != null && $error->error->message != null
+                        ? $error->error->message
+                        : $e->getMessage();
+                    
+                    throw new ApiException($errorMessage, $errorCode);
+                }
             }
 
             $statusCode = $response->getStatusCode();

@@ -29,14 +29,14 @@ namespace GroupDocs\Merger\ApiTests;
 
 use GroupDocs\Merger\Model\Requests;
 
-require_once "BaseApiTest.php";
+require_once "BaseApiTestCase.php";
 
-class InfoApiTests extends BaseApiTest
+class InfoApiTest extends BaseApiTestCase
 {
     public function testGetInfoReturnsFileNotFound()
     {
-        $this->setExpectedExceptionRegExp(
-            \GroupDocs\Merger\ApiException::class, "/Can't find file located at 'some-folder\/NotExist.docx'./");
+        $this->expectException(\GroupDocs\Merger\ApiException::class);
+        $this->expectExceptionMessageMatches("/Can't find file located at 'some-folder\/NotExist.docx'./");        
 
         $testFile = Internal\TestFiles::getFileNotExist();
 

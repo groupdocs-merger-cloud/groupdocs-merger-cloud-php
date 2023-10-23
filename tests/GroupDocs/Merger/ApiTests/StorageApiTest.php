@@ -29,9 +29,9 @@ namespace GroupDocs\Merger\ApiTests;
 
 use GroupDocs\Merger\Model\Requests;
 
-require_once "BaseApiTest.php";
+require_once "BaseApiTestCase.php";
 
-class StorageApiTest extends BaseApiTest
+class StorageApiTest extends BaseApiTestCase
 {
     public function testGetDiscUsage()
     {

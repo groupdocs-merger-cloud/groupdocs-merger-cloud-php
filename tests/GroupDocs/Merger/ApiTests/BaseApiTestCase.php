@@ -37,7 +37,7 @@ use GroupDocs\Merger\StorageApi;
 use GroupDocs\Merger\FileApi;
 use GroupDocs\Merger\FolderApi;
 
-abstract class BaseApiTest extends \PHPUnit_Framework_TestCase
+class BaseApiTestCase extends \PHPUnit\Framework\TestCase
 {
     protected static $mergerConfig;
 
@@ -56,7 +56,7 @@ abstract class BaseApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Cleanup after each test case
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         self::_deleteFolder(self::$outputPath);        
     }
@@ -71,7 +71,7 @@ abstract class BaseApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Setup before each test suite
      */
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         self::_initTests();
     }

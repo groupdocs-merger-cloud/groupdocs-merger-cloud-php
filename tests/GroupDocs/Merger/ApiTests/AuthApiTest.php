@@ -30,15 +30,15 @@ namespace GroupDocs\Merger\ApiTests;
 use GroupDocs\Merger\Configuration;
 use GroupDocs\Merger\InfoApi;
 
-class AuthApiTest extends \PHPUnit_Framework_TestCase
+class AuthApiTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * Throws error when AppSid not found
      */
     public function testErrorWhenAppSidNotFound()
     {
-        $this->setExpectedExceptionRegExp(
-            \GroupDocs\Merger\ApiException::class, "/invalid_client/");
+        $this->expectException(\GroupDocs\Merger\ApiException::class);
+        $this->expectExceptionMessageMatches("/invalid_client/");
 
         $config = self::getConfig();
         $apiBaseUrl = $config["ApiBaseUrl"];
@@ -58,8 +58,8 @@ class AuthApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testErrorWhenAppKeyNotFound()
     {
-        $this->setExpectedExceptionRegExp(
-            \GroupDocs\Merger\ApiException::class, "/invalid_client/");
+        $this->expectException(\GroupDocs\Merger\ApiException::class);
+        $this->expectExceptionMessageMatches("/invalid_client/");
 
         $config = self::getConfig();
         $apiBaseUrl = $config["ApiBaseUrl"];

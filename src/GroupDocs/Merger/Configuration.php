@@ -95,7 +95,7 @@ class Configuration
      * Version of client SDK
      *
      */
-    protected $clientVersion = '23.2';
+    protected $clientVersion = '23.10';
 
     /*
      * Constructor
@@ -290,7 +290,7 @@ class Configuration
     }
 
     /*
-     * Gets client version, default value is '23.2'
+     * Gets client version, default value is '23.10'
      *
      */
     public function getClientVersion()
@@ -308,7 +308,7 @@ class Configuration
         $report  = 'PHP SDK (GroupDocs\Merger) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
-        $report .= '    SDK Package Version: 23.2' . PHP_EOL;
+        $report .= '    SDK Package Version: 23.10' . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;
