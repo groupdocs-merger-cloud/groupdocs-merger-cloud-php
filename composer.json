@@ -1,7 +1,7 @@
 {
     "description": "This repository contains GroupDocs.Merger Cloud SDK for PHP source code.",
     "name": "groupdocscloud/groupdocs-merger-cloud",
-    "version": "23.10",
+    "version": "24.7",
     "license": "MIT",
     "type": "library",
     "keywords": [

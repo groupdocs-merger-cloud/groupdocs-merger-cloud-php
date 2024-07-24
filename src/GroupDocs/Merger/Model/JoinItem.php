@@ -2,7 +2,7 @@
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="JoinItem.php">
- *   Copyright (c) 2003-2023 Aspose Pty Ltd
+ *   Copyright (c) 2003-2024 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -59,6 +59,7 @@ class JoinItem implements ArrayAccess
         'endPageNumber' => 'int',
         'rangeMode' => 'string',
         'wordJoinMode' => 'string',
+        'wordJoinCompliance' => 'string',
         'imageJoinMode' => 'string'
     ];
 
@@ -74,6 +75,7 @@ class JoinItem implements ArrayAccess
         'endPageNumber' => 'int32',
         'rangeMode' => null,
         'wordJoinMode' => null,
+        'wordJoinCompliance' => null,
         'imageJoinMode' => null
     ];
 
@@ -110,6 +112,7 @@ class JoinItem implements ArrayAccess
         'endPageNumber' => 'EndPageNumber',
         'rangeMode' => 'RangeMode',
         'wordJoinMode' => 'WordJoinMode',
+        'wordJoinCompliance' => 'WordJoinCompliance',
         'imageJoinMode' => 'ImageJoinMode'
     ];
 
@@ -125,6 +128,7 @@ class JoinItem implements ArrayAccess
         'endPageNumber' => 'setEndPageNumber',
         'rangeMode' => 'setRangeMode',
         'wordJoinMode' => 'setWordJoinMode',
+        'wordJoinCompliance' => 'setWordJoinCompliance',
         'imageJoinMode' => 'setImageJoinMode'
     ];
 
@@ -140,6 +144,7 @@ class JoinItem implements ArrayAccess
         'endPageNumber' => 'getEndPageNumber',
         'rangeMode' => 'getRangeMode',
         'wordJoinMode' => 'getWordJoinMode',
+        'wordJoinCompliance' => 'getWordJoinCompliance',
         'imageJoinMode' => 'getImageJoinMode'
     ];
 
@@ -189,6 +194,10 @@ class JoinItem implements ArrayAccess
     const RANGE_MODE_EVEN_PAGES = 'EvenPages';
     const WORD_JOIN_MODE__DEFAULT = 'Default';
     const WORD_JOIN_MODE_CONTINUOUS = 'Continuous';
+    const WORD_JOIN_COMPLIANCE_ECMA376_2006 = 'Ecma376_2006';
+    const WORD_JOIN_COMPLIANCE_ISO29500_2008_TRANSITIONAL = 'Iso29500_2008_Transitional';
+    const WORD_JOIN_COMPLIANCE_ISO29500_2008_STRICT = 'Iso29500_2008_Strict';
+    const WORD_JOIN_COMPLIANCE_AUTO = 'Auto';
     const IMAGE_JOIN_MODE_HORIZONTAL = 'Horizontal';
     const IMAGE_JOIN_MODE_VERTICAL = 'Vertical';
     
@@ -218,6 +227,21 @@ class JoinItem implements ArrayAccess
         return [
             self::WORD_JOIN_MODE__DEFAULT,
             self::WORD_JOIN_MODE_CONTINUOUS,
+        ];
+    }
+    
+    /*
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getWordJoinComplianceAllowableValues()
+    {
+        return [
+            self::WORD_JOIN_COMPLIANCE_ECMA376_2006,
+            self::WORD_JOIN_COMPLIANCE_ISO29500_2008_TRANSITIONAL,
+            self::WORD_JOIN_COMPLIANCE_ISO29500_2008_STRICT,
+            self::WORD_JOIN_COMPLIANCE_AUTO,
         ];
     }
     
@@ -256,6 +280,7 @@ class JoinItem implements ArrayAccess
         $this->container['endPageNumber'] = isset($data['endPageNumber']) ? $data['endPageNumber'] : null;
         $this->container['rangeMode'] = isset($data['rangeMode']) ? $data['rangeMode'] : null;
         $this->container['wordJoinMode'] = isset($data['wordJoinMode']) ? $data['wordJoinMode'] : null;
+        $this->container['wordJoinCompliance'] = isset($data['wordJoinCompliance']) ? $data['wordJoinCompliance'] : null;
         $this->container['imageJoinMode'] = isset($data['imageJoinMode']) ? $data['imageJoinMode'] : null;
     }
 
@@ -292,6 +317,17 @@ class JoinItem implements ArrayAccess
         if (!in_array($this->container['wordJoinMode'], $allowedValues)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'wordJoinMode', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['wordJoinCompliance'] === null) {
+            $invalidProperties[] = "'wordJoinCompliance' can't be null";
+        }
+        $allowedValues = $this->getWordJoinComplianceAllowableValues();
+        if (!in_array($this->container['wordJoinCompliance'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'wordJoinCompliance', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -337,6 +373,13 @@ class JoinItem implements ArrayAccess
         }
         $allowedValues = $this->getWordJoinModeAllowableValues();
         if (!in_array($this->container['wordJoinMode'], $allowedValues)) {
+            return false;
+        }
+        if ($this->container['wordJoinCompliance'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getWordJoinComplianceAllowableValues();
+        if (!in_array($this->container['wordJoinCompliance'], $allowedValues)) {
             return false;
         }
         if ($this->container['imageJoinMode'] === null) {
@@ -500,6 +543,35 @@ class JoinItem implements ArrayAccess
         }
 			
         $this->container['wordJoinMode'] = $wordJoinMode;
+
+        return $this;
+    }
+
+    /*
+     * Gets wordJoinCompliance
+     *
+     * @return string
+     */
+    public function getWordJoinCompliance()
+    {
+        return $this->container['wordJoinCompliance'];
+    }
+
+    /*
+     * Sets wordJoinCompliance
+     *
+     * @param string $wordJoinCompliance Compliance mode for the Word Ooxml format
+     *
+     * @return $this
+     */
+    public function setWordJoinCompliance($wordJoinCompliance)
+    {
+        $allowedValues = $this->getWordJoinComplianceAllowableValues();
+        if ((!is_numeric($wordJoinCompliance) && !in_array($wordJoinCompliance, $allowedValues)) || (is_numeric($wordJoinCompliance) && !in_array($allowedValues[$wordJoinCompliance], $allowedValues))) {
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'wordJoinCompliance', must be one of '%s'", implode("', '", $allowedValues)));
+        }
+			
+        $this->container['wordJoinCompliance'] = $wordJoinCompliance;
 
         return $this;
     }

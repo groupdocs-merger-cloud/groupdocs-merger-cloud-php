@@ -2,7 +2,7 @@
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="PagesApi.php">
- *   Copyright (c) 2003-2023 Aspose Pty Ltd
+ *   Copyright (c) 2003-2024 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1863,7 +1863,7 @@ class PagesApi
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="extractRequest.php">
- *   Copyright (c) 2003-2023 Aspose Pty Ltd
+ *   Copyright (c) 2003-2024 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1912,7 +1912,7 @@ class extractRequest
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="moveRequest.php">
- *   Copyright (c) 2003-2023 Aspose Pty Ltd
+ *   Copyright (c) 2003-2024 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1961,7 +1961,7 @@ class moveRequest
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="orientationRequest.php">
- *   Copyright (c) 2003-2023 Aspose Pty Ltd
+ *   Copyright (c) 2003-2024 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -2010,7 +2010,7 @@ class orientationRequest
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="removeRequest.php">
- *   Copyright (c) 2003-2023 Aspose Pty Ltd
+ *   Copyright (c) 2003-2024 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -2059,7 +2059,7 @@ class removeRequest
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="rotateRequest.php">
- *   Copyright (c) 2003-2023 Aspose Pty Ltd
+ *   Copyright (c) 2003-2024 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -2108,7 +2108,7 @@ class rotateRequest
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="swapRequest.php">
- *   Copyright (c) 2003-2023 Aspose Pty Ltd
+ *   Copyright (c) 2003-2024 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
