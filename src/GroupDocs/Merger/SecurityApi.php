@@ -37,7 +37,7 @@ use GuzzleHttp\RequestOptions;
 use GroupDocs\Merger\Model\Requests;
 
 /*
- * GroupDocs.Merger Cloud API Reference
+ * GroupDocs.Conversion Cloud API Reference
  */
 class SecurityApi
 {
