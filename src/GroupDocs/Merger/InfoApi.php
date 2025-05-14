@@ -2,7 +2,7 @@
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="InfoApi.php">
- *   Copyright (c) 2003-2024 Aspose Pty Ltd
+ *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -37,7 +37,7 @@ use GuzzleHttp\RequestOptions;
 use GroupDocs\Merger\Model\Requests;
 
 /*
- * GroupDocs.Conversion Cloud API Reference
+ * GroupDocs.Merger Cloud API Reference
  */
 class InfoApi
 {
@@ -730,7 +730,7 @@ class InfoApi
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="getInfoRequest.php">
- *   Copyright (c) 2003-2024 Aspose Pty Ltd
+ *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -2,7 +2,7 @@
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="LicenseApi.php">
- *   Copyright (c) 2003-2024 Aspose Pty Ltd
+ *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -37,7 +37,7 @@ use GuzzleHttp\RequestOptions;
 use GroupDocs\Merger\Model\Requests;
 
 /*
- * GroupDocs.Conversion Cloud API Reference
+ * GroupDocs.Merger Cloud API Reference
  */
 class LicenseApi
 {
@@ -172,6 +172,14 @@ class LicenseApi
             switch ($e->getCode()) {
             case 200:
                     $data = ObjectSerializer::deserialize($e->getResponseBody(), '\GroupDocs\Merger\Model\ConsumptionResult', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                break;
+            case 401:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\GroupDocs\Merger\Model\ApiErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                break;
+            case 500:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\GroupDocs\Merger\Model\ApiErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                 break;
             }

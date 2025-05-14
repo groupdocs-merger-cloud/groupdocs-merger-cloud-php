@@ -1,7 +1,7 @@
 <?php
 /*
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="FilesUploadResult.php">
+ * <copyright company="Aspose Pty Ltd" file="ApiError.php">
  *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -32,11 +32,10 @@ use \ArrayAccess;
 use \GroupDocs\Merger\ObjectSerializer;
 
 /*
- * FilesUploadResult
+ * ApiError
  *
- * @description File upload result
  */
-class FilesUploadResult implements ArrayAccess
+class ApiError implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -45,7 +44,7 @@ class FilesUploadResult implements ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = "FilesUploadResult";
+    protected static $swaggerModelName = "ApiError";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
@@ -53,8 +52,11 @@ class FilesUploadResult implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'uploaded' => 'string[]',
-        'errors' => '\GroupDocs\Merger\Model\Error[]'
+        'code' => 'string',
+        'message' => 'string',
+        'description' => 'string',
+        'dateTime' => '\DateTime',
+        'innerError' => '\GroupDocs\Merger\Model\ApiError'
     ];
 
     /*
@@ -63,8 +65,11 @@ class FilesUploadResult implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'uploaded' => null,
-        'errors' => null
+        'code' => null,
+        'message' => null,
+        'description' => null,
+        'dateTime' => 'date-time',
+        'innerError' => null
     ];
 
     /*
@@ -94,8 +99,11 @@ class FilesUploadResult implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'uploaded' => 'Uploaded',
-        'errors' => 'Errors'
+        'code' => 'Code',
+        'message' => 'Message',
+        'description' => 'Description',
+        'dateTime' => 'DateTime',
+        'innerError' => 'InnerError'
     ];
 
     /*
@@ -104,8 +112,11 @@ class FilesUploadResult implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'uploaded' => 'setUploaded',
-        'errors' => 'setErrors'
+        'code' => 'setCode',
+        'message' => 'setMessage',
+        'description' => 'setDescription',
+        'dateTime' => 'setDateTime',
+        'innerError' => 'setInnerError'
     ];
 
     /*
@@ -114,8 +125,11 @@ class FilesUploadResult implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'uploaded' => 'getUploaded',
-        'errors' => 'getErrors'
+        'code' => 'getCode',
+        'message' => 'getMessage',
+        'description' => 'getDescription',
+        'dateTime' => 'getDateTime',
+        'innerError' => 'getInnerError'
     ];
 
     /*
@@ -178,8 +192,11 @@ class FilesUploadResult implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['uploaded'] = isset($data['uploaded']) ? $data['uploaded'] : null;
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['dateTime'] = isset($data['dateTime']) ? $data['dateTime'] : null;
+        $this->container['innerError'] = isset($data['innerError']) ? $data['innerError'] : null;
     }
 
     /*
@@ -208,49 +225,121 @@ class FilesUploadResult implements ArrayAccess
 
 
     /*
-     * Gets uploaded
+     * Gets code
      *
-     * @return string[]
+     * @return string
      */
-    public function getUploaded()
+    public function getCode()
     {
-        return $this->container['uploaded'];
+        return $this->container['code'];
     }
 
     /*
-     * Sets uploaded
+     * Sets code
      *
-     * @param string[] $uploaded List of uploaded file names
+     * @param string $code code
      *
      * @return $this
      */
-    public function setUploaded($uploaded)
+    public function setCode($code)
     {
-        $this->container['uploaded'] = $uploaded;
+        $this->container['code'] = $code;
 
         return $this;
     }
 
     /*
-     * Gets errors
+     * Gets message
      *
-     * @return \GroupDocs\Merger\Model\Error[]
+     * @return string
      */
-    public function getErrors()
+    public function getMessage()
     {
-        return $this->container['errors'];
+        return $this->container['message'];
     }
 
     /*
-     * Sets errors
+     * Sets message
      *
-     * @param \GroupDocs\Merger\Model\Error[] $errors List of errors.
+     * @param string $message message
      *
      * @return $this
      */
-    public function setErrors($errors)
+    public function setMessage($message)
     {
-        $this->container['errors'] = $errors;
+        $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /*
+     * Gets description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /*
+     * Sets description
+     *
+     * @param string $description description
+     *
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /*
+     * Gets dateTime
+     *
+     * @return \DateTime
+     */
+    public function getDateTime()
+    {
+        return $this->container['dateTime'];
+    }
+
+    /*
+     * Sets dateTime
+     *
+     * @param \DateTime $dateTime dateTime
+     *
+     * @return $this
+     */
+    public function setDateTime($dateTime)
+    {
+        $this->container['dateTime'] = $dateTime;
+
+        return $this;
+    }
+
+    /*
+     * Gets innerError
+     *
+     * @return \GroupDocs\Merger\Model\ApiError
+     */
+    public function getInnerError()
+    {
+        return $this->container['innerError'];
+    }
+
+    /*
+     * Sets innerError
+     *
+     * @param \GroupDocs\Merger\Model\ApiError $innerError innerError
+     *
+     * @return $this
+     */
+    public function setInnerError($innerError)
+    {
+        $this->container['innerError'] = $innerError;
 
         return $this;
     }

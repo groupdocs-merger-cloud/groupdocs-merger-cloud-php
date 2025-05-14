@@ -1,7 +1,7 @@
 <?php
 /*
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="JoinItem.php">
+ * <copyright company="Aspose Pty Ltd" file="MixPagesOptions.php">
  *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -32,11 +32,11 @@ use \ArrayAccess;
 use \GroupDocs\Merger\ObjectSerializer;
 
 /*
- * JoinItem
+ * MixPagesOptions
  *
- * @description Describes document for join operation.
+ * @description Defines options for documents JoinPages method
  */
-class JoinItem implements ArrayAccess
+class MixPagesOptions implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -45,7 +45,7 @@ class JoinItem implements ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = "JoinItem";
+    protected static $swaggerModelName = "MixPagesOptions";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
@@ -53,11 +53,9 @@ class JoinItem implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'fileInfo' => '\GroupDocs\Merger\Model\FileInfo',
-        'pages' => 'int[]',
-        'startPageNumber' => 'int',
-        'endPageNumber' => 'int',
-        'rangeMode' => 'string',
+        'files' => '\GroupDocs\Merger\Model\FileInfo[]',
+        'filesPages' => '\GroupDocs\Merger\Model\MixPagesItem[]',
+        'outputPath' => 'string',
         'wordJoinMode' => 'string',
         'wordJoinCompliance' => 'string',
         'imageJoinMode' => 'string'
@@ -69,11 +67,9 @@ class JoinItem implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'fileInfo' => null,
-        'pages' => 'int32',
-        'startPageNumber' => 'int32',
-        'endPageNumber' => 'int32',
-        'rangeMode' => null,
+        'files' => null,
+        'filesPages' => null,
+        'outputPath' => null,
         'wordJoinMode' => null,
         'wordJoinCompliance' => null,
         'imageJoinMode' => null
@@ -106,11 +102,9 @@ class JoinItem implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'fileInfo' => 'FileInfo',
-        'pages' => 'Pages',
-        'startPageNumber' => 'StartPageNumber',
-        'endPageNumber' => 'EndPageNumber',
-        'rangeMode' => 'RangeMode',
+        'files' => 'Files',
+        'filesPages' => 'FilesPages',
+        'outputPath' => 'OutputPath',
         'wordJoinMode' => 'WordJoinMode',
         'wordJoinCompliance' => 'WordJoinCompliance',
         'imageJoinMode' => 'ImageJoinMode'
@@ -122,11 +116,9 @@ class JoinItem implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'fileInfo' => 'setFileInfo',
-        'pages' => 'setPages',
-        'startPageNumber' => 'setStartPageNumber',
-        'endPageNumber' => 'setEndPageNumber',
-        'rangeMode' => 'setRangeMode',
+        'files' => 'setFiles',
+        'filesPages' => 'setFilesPages',
+        'outputPath' => 'setOutputPath',
         'wordJoinMode' => 'setWordJoinMode',
         'wordJoinCompliance' => 'setWordJoinCompliance',
         'imageJoinMode' => 'setImageJoinMode'
@@ -138,11 +130,9 @@ class JoinItem implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'fileInfo' => 'getFileInfo',
-        'pages' => 'getPages',
-        'startPageNumber' => 'getStartPageNumber',
-        'endPageNumber' => 'getEndPageNumber',
-        'rangeMode' => 'getRangeMode',
+        'files' => 'getFiles',
+        'filesPages' => 'getFilesPages',
+        'outputPath' => 'getOutputPath',
         'wordJoinMode' => 'getWordJoinMode',
         'wordJoinCompliance' => 'getWordJoinCompliance',
         'imageJoinMode' => 'getImageJoinMode'
@@ -189,9 +179,6 @@ class JoinItem implements ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const RANGE_MODE_ALL_PAGES = 'AllPages';
-    const RANGE_MODE_ODD_PAGES = 'OddPages';
-    const RANGE_MODE_EVEN_PAGES = 'EvenPages';
     const WORD_JOIN_MODE__DEFAULT = 'Default';
     const WORD_JOIN_MODE_CONTINUOUS = 'Continuous';
     const WORD_JOIN_COMPLIANCE_ECMA376_2006 = 'Ecma376_2006';
@@ -202,20 +189,6 @@ class JoinItem implements ArrayAccess
     const IMAGE_JOIN_MODE_VERTICAL = 'Vertical';
     
 
-    
-    /*
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getRangeModeAllowableValues()
-    {
-        return [
-            self::RANGE_MODE_ALL_PAGES,
-            self::RANGE_MODE_ODD_PAGES,
-            self::RANGE_MODE_EVEN_PAGES,
-        ];
-    }
     
     /*
      * Gets allowable values of the enum
@@ -274,11 +247,9 @@ class JoinItem implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['fileInfo'] = isset($data['fileInfo']) ? $data['fileInfo'] : null;
-        $this->container['pages'] = isset($data['pages']) ? $data['pages'] : null;
-        $this->container['startPageNumber'] = isset($data['startPageNumber']) ? $data['startPageNumber'] : null;
-        $this->container['endPageNumber'] = isset($data['endPageNumber']) ? $data['endPageNumber'] : null;
-        $this->container['rangeMode'] = isset($data['rangeMode']) ? $data['rangeMode'] : null;
+        $this->container['files'] = isset($data['files']) ? $data['files'] : null;
+        $this->container['filesPages'] = isset($data['filesPages']) ? $data['filesPages'] : null;
+        $this->container['outputPath'] = isset($data['outputPath']) ? $data['outputPath'] : null;
         $this->container['wordJoinMode'] = isset($data['wordJoinMode']) ? $data['wordJoinMode'] : null;
         $this->container['wordJoinCompliance'] = isset($data['wordJoinCompliance']) ? $data['wordJoinCompliance'] : null;
         $this->container['imageJoinMode'] = isset($data['imageJoinMode']) ? $data['imageJoinMode'] : null;
@@ -292,23 +263,6 @@ class JoinItem implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        if ($this->container['startPageNumber'] === null) {
-            $invalidProperties[] = "'startPageNumber' can't be null";
-        }
-        if ($this->container['endPageNumber'] === null) {
-            $invalidProperties[] = "'endPageNumber' can't be null";
-        }
-        if ($this->container['rangeMode'] === null) {
-            $invalidProperties[] = "'rangeMode' can't be null";
-        }
-        $allowedValues = $this->getRangeModeAllowableValues();
-        if (!in_array($this->container['rangeMode'], $allowedValues)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'rangeMode', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         if ($this->container['wordJoinMode'] === null) {
             $invalidProperties[] = "'wordJoinMode' can't be null";
@@ -355,19 +309,6 @@ class JoinItem implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['startPageNumber'] === null) {
-            return false;
-        }
-        if ($this->container['endPageNumber'] === null) {
-            return false;
-        }
-        if ($this->container['rangeMode'] === null) {
-            return false;
-        }
-        $allowedValues = $this->getRangeModeAllowableValues();
-        if (!in_array($this->container['rangeMode'], $allowedValues)) {
-            return false;
-        }
         if ($this->container['wordJoinMode'] === null) {
             return false;
         }
@@ -394,126 +335,73 @@ class JoinItem implements ArrayAccess
 
 
     /*
-     * Gets fileInfo
+     * Gets files
      *
-     * @return \GroupDocs\Merger\Model\FileInfo
+     * @return \GroupDocs\Merger\Model\FileInfo[]
      */
-    public function getFileInfo()
+    public function getFiles()
     {
-        return $this->container['fileInfo'];
+        return $this->container['files'];
     }
 
     /*
-     * Sets fileInfo
+     * Sets files
      *
-     * @param \GroupDocs\Merger\Model\FileInfo $fileInfo File info.
+     * @param \GroupDocs\Merger\Model\FileInfo[] $files Source documents for JoinPages operation
      *
      * @return $this
      */
-    public function setFileInfo($fileInfo)
+    public function setFiles($files)
     {
-        $this->container['fileInfo'] = $fileInfo;
+        $this->container['files'] = $files;
 
         return $this;
     }
 
     /*
-     * Gets pages
+     * Gets filesPages
      *
-     * @return int[]
+     * @return \GroupDocs\Merger\Model\MixPagesItem[]
      */
-    public function getPages()
+    public function getFilesPages()
     {
-        return $this->container['pages'];
+        return $this->container['filesPages'];
     }
 
     /*
-     * Sets pages
+     * Sets filesPages
      *
-     * @param int[] $pages List of page numbers to use in a Join operation. NOTE: page numbering starts from 1.
+     * @param \GroupDocs\Merger\Model\MixPagesItem[] $filesPages Page numbers for document indicies in Files collection.
      *
      * @return $this
      */
-    public function setPages($pages)
+    public function setFilesPages($filesPages)
     {
-        $this->container['pages'] = $pages;
+        $this->container['filesPages'] = $filesPages;
 
         return $this;
     }
 
     /*
-     * Gets startPageNumber
-     *
-     * @return int
-     */
-    public function getStartPageNumber()
-    {
-        return $this->container['startPageNumber'];
-    }
-
-    /*
-     * Sets startPageNumber
-     *
-     * @param int $startPageNumber Start page number. Ignored if Pages collection is not empty.
-     *
-     * @return $this
-     */
-    public function setStartPageNumber($startPageNumber)
-    {
-        $this->container['startPageNumber'] = $startPageNumber;
-
-        return $this;
-    }
-
-    /*
-     * Gets endPageNumber
-     *
-     * @return int
-     */
-    public function getEndPageNumber()
-    {
-        return $this->container['endPageNumber'];
-    }
-
-    /*
-     * Sets endPageNumber
-     *
-     * @param int $endPageNumber End page number. Ignored if Pages collection is not empty.
-     *
-     * @return $this
-     */
-    public function setEndPageNumber($endPageNumber)
-    {
-        $this->container['endPageNumber'] = $endPageNumber;
-
-        return $this;
-    }
-
-    /*
-     * Gets rangeMode
+     * Gets outputPath
      *
      * @return string
      */
-    public function getRangeMode()
+    public function getOutputPath()
     {
-        return $this->container['rangeMode'];
+        return $this->container['outputPath'];
     }
 
     /*
-     * Sets rangeMode
+     * Sets outputPath
      *
-     * @param string $rangeMode Range mode. Ignored if Pages collection is not empty. Default value is AllPages.
+     * @param string $outputPath The output path
      *
      * @return $this
      */
-    public function setRangeMode($rangeMode)
+    public function setOutputPath($outputPath)
     {
-        $allowedValues = $this->getRangeModeAllowableValues();
-        if ((!is_numeric($rangeMode) && !in_array($rangeMode, $allowedValues)) || (is_numeric($rangeMode) && !in_array($allowedValues[$rangeMode], $allowedValues))) {
-            throw new \InvalidArgumentException(sprintf("Invalid value for 'rangeMode', must be one of '%s'", implode("', '", $allowedValues)));
-        }
-			
-        $this->container['rangeMode'] = $rangeMode;
+        $this->container['outputPath'] = $outputPath;
 
         return $this;
     }

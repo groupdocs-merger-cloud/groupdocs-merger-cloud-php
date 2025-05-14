@@ -1,7 +1,7 @@
 <?php
 /*
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="FilesUploadResult.php">
+ * <copyright company="Aspose Pty Ltd" file="MixPagesItem.php">
  *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -32,11 +32,11 @@ use \ArrayAccess;
 use \GroupDocs\Merger\ObjectSerializer;
 
 /*
- * FilesUploadResult
+ * MixPagesItem
  *
- * @description File upload result
+ * @description Defines item options for documents MixPages method
  */
-class FilesUploadResult implements ArrayAccess
+class MixPagesItem implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -45,7 +45,7 @@ class FilesUploadResult implements ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = "FilesUploadResult";
+    protected static $swaggerModelName = "MixPagesItem";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
@@ -53,8 +53,8 @@ class FilesUploadResult implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'uploaded' => 'string[]',
-        'errors' => '\GroupDocs\Merger\Model\Error[]'
+        'fileIndex' => 'int',
+        'pages' => 'int[]'
     ];
 
     /*
@@ -63,8 +63,8 @@ class FilesUploadResult implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'uploaded' => null,
-        'errors' => null
+        'fileIndex' => 'int32',
+        'pages' => 'int32'
     ];
 
     /*
@@ -94,8 +94,8 @@ class FilesUploadResult implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'uploaded' => 'Uploaded',
-        'errors' => 'Errors'
+        'fileIndex' => 'FileIndex',
+        'pages' => 'Pages'
     ];
 
     /*
@@ -104,8 +104,8 @@ class FilesUploadResult implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'uploaded' => 'setUploaded',
-        'errors' => 'setErrors'
+        'fileIndex' => 'setFileIndex',
+        'pages' => 'setPages'
     ];
 
     /*
@@ -114,8 +114,8 @@ class FilesUploadResult implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'uploaded' => 'getUploaded',
-        'errors' => 'getErrors'
+        'fileIndex' => 'getFileIndex',
+        'pages' => 'getPages'
     ];
 
     /*
@@ -178,8 +178,8 @@ class FilesUploadResult implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['uploaded'] = isset($data['uploaded']) ? $data['uploaded'] : null;
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['fileIndex'] = isset($data['fileIndex']) ? $data['fileIndex'] : null;
+        $this->container['pages'] = isset($data['pages']) ? $data['pages'] : null;
     }
 
     /*
@@ -191,6 +191,9 @@ class FilesUploadResult implements ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['fileIndex'] === null) {
+            $invalidProperties[] = "'fileIndex' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -203,54 +206,57 @@ class FilesUploadResult implements ArrayAccess
     public function valid()
     {
 
+        if ($this->container['fileIndex'] === null) {
+            return false;
+        }
         return true;
     }
 
 
     /*
-     * Gets uploaded
+     * Gets fileIndex
      *
-     * @return string[]
+     * @return int
      */
-    public function getUploaded()
+    public function getFileIndex()
     {
-        return $this->container['uploaded'];
+        return $this->container['fileIndex'];
     }
 
     /*
-     * Sets uploaded
+     * Sets fileIndex
      *
-     * @param string[] $uploaded List of uploaded file names
+     * @param int $fileIndex Index of the file from MixPagesOptions.Files collection.
      *
      * @return $this
      */
-    public function setUploaded($uploaded)
+    public function setFileIndex($fileIndex)
     {
-        $this->container['uploaded'] = $uploaded;
+        $this->container['fileIndex'] = $fileIndex;
 
         return $this;
     }
 
     /*
-     * Gets errors
+     * Gets pages
      *
-     * @return \GroupDocs\Merger\Model\Error[]
+     * @return int[]
      */
-    public function getErrors()
+    public function getPages()
     {
-        return $this->container['errors'];
+        return $this->container['pages'];
     }
 
     /*
-     * Sets errors
+     * Sets pages
      *
-     * @param \GroupDocs\Merger\Model\Error[] $errors List of errors.
+     * @param int[] $pages List of page numbers to use in a MixPages operation. NOTE: page numbering starts from 1.
      *
      * @return $this
      */
-    public function setErrors($errors)
+    public function setPages($pages)
     {
-        $this->container['errors'] = $errors;
+        $this->container['pages'] = $pages;
 
         return $this;
     }

@@ -1,7 +1,7 @@
 <?php
 /*
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="FilesUploadResult.php">
+ * <copyright company="Aspose Pty Ltd" file="ApiErrorResponse.php">
  *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -32,11 +32,10 @@ use \ArrayAccess;
 use \GroupDocs\Merger\ObjectSerializer;
 
 /*
- * FilesUploadResult
+ * ApiErrorResponse
  *
- * @description File upload result
  */
-class FilesUploadResult implements ArrayAccess
+class ApiErrorResponse implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -45,7 +44,7 @@ class FilesUploadResult implements ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = "FilesUploadResult";
+    protected static $swaggerModelName = "ApiErrorResponse";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
@@ -53,8 +52,8 @@ class FilesUploadResult implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'uploaded' => 'string[]',
-        'errors' => '\GroupDocs\Merger\Model\Error[]'
+        'requestId' => 'string',
+        'error' => '\GroupDocs\Merger\Model\ApiError'
     ];
 
     /*
@@ -63,8 +62,8 @@ class FilesUploadResult implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'uploaded' => null,
-        'errors' => null
+        'requestId' => null,
+        'error' => null
     ];
 
     /*
@@ -94,8 +93,8 @@ class FilesUploadResult implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'uploaded' => 'Uploaded',
-        'errors' => 'Errors'
+        'requestId' => 'RequestId',
+        'error' => 'Error'
     ];
 
     /*
@@ -104,8 +103,8 @@ class FilesUploadResult implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'uploaded' => 'setUploaded',
-        'errors' => 'setErrors'
+        'requestId' => 'setRequestId',
+        'error' => 'setError'
     ];
 
     /*
@@ -114,8 +113,8 @@ class FilesUploadResult implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'uploaded' => 'getUploaded',
-        'errors' => 'getErrors'
+        'requestId' => 'getRequestId',
+        'error' => 'getError'
     ];
 
     /*
@@ -178,8 +177,8 @@ class FilesUploadResult implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['uploaded'] = isset($data['uploaded']) ? $data['uploaded'] : null;
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['requestId'] = isset($data['requestId']) ? $data['requestId'] : null;
+        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
     }
 
     /*
@@ -208,49 +207,49 @@ class FilesUploadResult implements ArrayAccess
 
 
     /*
-     * Gets uploaded
+     * Gets requestId
      *
-     * @return string[]
+     * @return string
      */
-    public function getUploaded()
+    public function getRequestId()
     {
-        return $this->container['uploaded'];
+        return $this->container['requestId'];
     }
 
     /*
-     * Sets uploaded
+     * Sets requestId
      *
-     * @param string[] $uploaded List of uploaded file names
+     * @param string $requestId requestId
      *
      * @return $this
      */
-    public function setUploaded($uploaded)
+    public function setRequestId($requestId)
     {
-        $this->container['uploaded'] = $uploaded;
+        $this->container['requestId'] = $requestId;
 
         return $this;
     }
 
     /*
-     * Gets errors
+     * Gets error
      *
-     * @return \GroupDocs\Merger\Model\Error[]
+     * @return \GroupDocs\Merger\Model\ApiError
      */
-    public function getErrors()
+    public function getError()
     {
-        return $this->container['errors'];
+        return $this->container['error'];
     }
 
     /*
-     * Sets errors
+     * Sets error
      *
-     * @param \GroupDocs\Merger\Model\Error[] $errors List of errors.
+     * @param \GroupDocs\Merger\Model\ApiError $error error
      *
      * @return $this
      */
-    public function setErrors($errors)
+    public function setError($error)
     {
-        $this->container['errors'] = $errors;
+        $this->container['error'] = $error;
 
         return $this;
     }
