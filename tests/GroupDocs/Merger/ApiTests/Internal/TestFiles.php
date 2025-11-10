@@ -48,7 +48,7 @@ class TestFiles
     {
         $file = new TestFile();
         $file->fileName = "one-page.docx";
-        $file->folder = "WordProcessing\\";
+        $file->folder = "WordProcessing/";
         return $file;
     }    
 
@@ -56,7 +56,7 @@ class TestFiles
     {
         $file = new TestFile();
         $file->fileName = "four-pages.docx";
-        $file->folder = "WordProcessing\\";
+        $file->folder = "WordProcessing/";
         return $file;
     }
 
@@ -64,7 +64,7 @@ class TestFiles
     {
         $file = new TestFile();
         $file->fileName = "password-protected.docx";
-        $file->folder = "WordProcessing\\";
+        $file->folder = "WordProcessing/";
         $file->password = "password";
         return $file;
     }
@@ -73,7 +73,7 @@ class TestFiles
     {
         $file = new TestFile();
         $file->fileName = "four-sheets.xlsx";
-        $file->folder = "Spreadsheet\\";
+        $file->folder = "Spreadsheet/";
         return $file;
     }
 
@@ -81,7 +81,7 @@ class TestFiles
     {
         $file = new TestFile();
         $file->fileName = "four-sheets-protected.xlsx";
-        $file->folder = "Spreadsheet\\";
+        $file->folder = "Spreadsheet/";
         $file->password = "password";
         return $file;
     }
@@ -90,7 +90,7 @@ class TestFiles
     {
         $file = new TestFile();
         $file->fileName = "ten-pages.pdf";
-        $file->folder = "Pdf\\";
+        $file->folder = "Pdf/";
         return $file;
     }      
     
@@ -98,7 +98,7 @@ class TestFiles
     {
         $file = new TestFile();
         $file->fileName = "one-page-password.pdf";
-        $file->folder = "Pdf\\";
+        $file->folder = "Pdf/";
         $file->password = "password";
         return $file;
     }        
@@ -107,7 +107,7 @@ class TestFiles
     {
         $file = new TestFile();
         $file->fileName = "document.txt";
-        $file->folder = "Text\\";
+        $file->folder = "Text/";
         return $file;
     }    
 

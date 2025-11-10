@@ -42,40 +42,45 @@ Clone or download this repository, then run `composer install` in the root direc
 require_once('/path/to/groupdocs-merger-cloud-php/vendor/autoload.php');
 ```
 
-## Tests
-
-To run the unit tests set your AppSID and AppKey in [json.config](tests/GroupDocs/Merger/config.json) and execute following commands:
-
-```
-php composer.phar install
-./vendor/bin/phpunit
-```
-
 ## Getting Started
-Please follow the [installation procedure](#installation--usage) and then run the following:
+
+This example demonstrates merging different Word files seamlessly with a few lines of code:
 
 ```php
 <?php
 
 require_once(__DIR__ . '/vendor/autoload.php');
 
-//TODO: Get your AppSID and AppKey at https://dashboard.groupdocs.cloud (free registration is required).
+// For complete examples and data files, please go to https://github.com/groupdocs-merger-cloud/groupdocs-merger-cloud-php-samples
+$AppSid = 'XXXX-XXXX-XXXX-XXXX'; // Get AppKey and AppSID from https://dashboard.groupdocs.cloud
+$AppKey = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'; // Get AppKey and AppSID from https://dashboard.groupdocs.cloud
+  
 $configuration = new GroupDocs\Merger\Configuration();
-$configuration->setAppSid("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX");
-$configuration->setAppKey("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-
-$infoApi = new GroupDocs\Merger\InfoApi($configuration); 
-
-try {
-    $response = $infoApi->getSupportedFileFormats();
-
-    foreach ($response->getFormats() as $key => $format) {
-        echo $format->getFileFormat() . " - " .  $format->getExtension(), "\n";
-    }
-} catch (Exception $e) {
-    echo  "Something went wrong: ",  $e->getMessage(), "\n";
-    PHP_EOL;
-}
+$configuration->setAppSid(CommonUtils::$AppSid);
+$configuration->setAppKey(CommonUtils::$AppKey);
+ 
+$documentApi = GroupDocs\Merger\DocumentApi($configuration);
+ 
+$fileInfo1 = new Model\FileInfo();
+$fileInfo1->setFilePath("WordProcessing/sample-10-pages.docx");         
+$item1 = new Model\JoinItem();        
+$item1->setFileInfo($fileInfo1);
+$item1->setPages([3, 6, 8]);
+ 
+$fileInfo2 = new Model\FileInfo();
+$fileInfo2->setFilePath("WordProcessing/four-pages.docx");          
+$item2 = new Model\JoinItem();
+$item2->setFileInfo($fileInfo2); 
+$item2->setStartPageNumber(1);               
+$item2->setEndPageNumber(4);
+$item2->setRangeMode(Model\JoinItem::RANGE_MODE_ODD_PAGES);
+ 
+$options = new Model\JoinOptions();
+$options->setJoinItems([$item1, $item2]);
+$options->setOutputPath("Output/joined-pages.docx");
+ 
+$request = new Requests\joinRequest($options);       
+$response = $documentApi->join($request);
 
 ?>
 ```
