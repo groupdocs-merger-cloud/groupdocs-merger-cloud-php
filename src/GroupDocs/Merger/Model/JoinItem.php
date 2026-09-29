@@ -60,7 +60,8 @@ class JoinItem implements ArrayAccess
         'rangeMode' => 'string',
         'wordJoinMode' => 'string',
         'wordJoinCompliance' => 'string',
-        'imageJoinMode' => 'string'
+        'imageJoinMode' => 'string',
+        'preserveAccessibility' => 'bool'
     ];
 
     /*
@@ -76,7 +77,8 @@ class JoinItem implements ArrayAccess
         'rangeMode' => null,
         'wordJoinMode' => null,
         'wordJoinCompliance' => null,
-        'imageJoinMode' => null
+        'imageJoinMode' => null,
+        'preserveAccessibility' => null
     ];
 
     /*
@@ -113,7 +115,8 @@ class JoinItem implements ArrayAccess
         'rangeMode' => 'RangeMode',
         'wordJoinMode' => 'WordJoinMode',
         'wordJoinCompliance' => 'WordJoinCompliance',
-        'imageJoinMode' => 'ImageJoinMode'
+        'imageJoinMode' => 'ImageJoinMode',
+        'preserveAccessibility' => 'PreserveAccessibility'
     ];
 
     /*
@@ -129,7 +132,8 @@ class JoinItem implements ArrayAccess
         'rangeMode' => 'setRangeMode',
         'wordJoinMode' => 'setWordJoinMode',
         'wordJoinCompliance' => 'setWordJoinCompliance',
-        'imageJoinMode' => 'setImageJoinMode'
+        'imageJoinMode' => 'setImageJoinMode',
+        'preserveAccessibility' => 'setPreserveAccessibility'
     ];
 
     /*
@@ -145,7 +149,8 @@ class JoinItem implements ArrayAccess
         'rangeMode' => 'getRangeMode',
         'wordJoinMode' => 'getWordJoinMode',
         'wordJoinCompliance' => 'getWordJoinCompliance',
-        'imageJoinMode' => 'getImageJoinMode'
+        'imageJoinMode' => 'getImageJoinMode',
+        'preserveAccessibility' => 'getPreserveAccessibility'
     ];
 
     /*
@@ -282,6 +287,7 @@ class JoinItem implements ArrayAccess
         $this->container['wordJoinMode'] = isset($data['wordJoinMode']) ? $data['wordJoinMode'] : null;
         $this->container['wordJoinCompliance'] = isset($data['wordJoinCompliance']) ? $data['wordJoinCompliance'] : null;
         $this->container['imageJoinMode'] = isset($data['imageJoinMode']) ? $data['imageJoinMode'] : null;
+        $this->container['preserveAccessibility'] = isset($data['preserveAccessibility']) ? $data['preserveAccessibility'] : null;
     }
 
     /*
@@ -343,6 +349,9 @@ class JoinItem implements ArrayAccess
             );
         }
 
+        if ($this->container['preserveAccessibility'] === null) {
+            $invalidProperties[] = "'preserveAccessibility' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -387,6 +396,9 @@ class JoinItem implements ArrayAccess
         }
         $allowedValues = $this->getImageJoinModeAllowableValues();
         if (!in_array($this->container['imageJoinMode'], $allowedValues)) {
+            return false;
+        }
+        if ($this->container['preserveAccessibility'] === null) {
             return false;
         }
         return true;
@@ -601,6 +613,30 @@ class JoinItem implements ArrayAccess
         }
 			
         $this->container['imageJoinMode'] = $imageJoinMode;
+
+        return $this;
+    }
+
+    /*
+     * Gets preserveAccessibility
+     *
+     * @return bool
+     */
+    public function getPreserveAccessibility()
+    {
+        return $this->container['preserveAccessibility'];
+    }
+
+    /*
+     * Sets preserveAccessibility
+     *
+     * @param bool $preserveAccessibility Indicates if PDF accessibility (tagged PDF structure) should be preserved during merge.
+     *
+     * @return $this
+     */
+    public function setPreserveAccessibility($preserveAccessibility)
+    {
+        $this->container['preserveAccessibility'] = $preserveAccessibility;
 
         return $this;
     }

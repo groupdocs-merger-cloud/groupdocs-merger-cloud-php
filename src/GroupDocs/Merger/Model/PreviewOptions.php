@@ -53,7 +53,8 @@ class PreviewOptions extends PageOptions
     protected static $swaggerTypes = [
         'width' => 'int',
         'height' => 'int',
-        'format' => 'string'
+        'format' => 'string',
+        'resolution' => 'int'
     ];
 
     /*
@@ -64,7 +65,8 @@ class PreviewOptions extends PageOptions
     protected static $swaggerFormats = [
         'width' => 'int32',
         'height' => 'int32',
-        'format' => null
+        'format' => null,
+        'resolution' => 'int32'
     ];
 
     /*
@@ -96,7 +98,8 @@ class PreviewOptions extends PageOptions
     protected static $attributeMap = [
         'width' => 'Width',
         'height' => 'Height',
-        'format' => 'Format'
+        'format' => 'Format',
+        'resolution' => 'Resolution'
     ];
 
     /*
@@ -107,7 +110,8 @@ class PreviewOptions extends PageOptions
     protected static $setters = [
         'width' => 'setWidth',
         'height' => 'setHeight',
-        'format' => 'setFormat'
+        'format' => 'setFormat',
+        'resolution' => 'setResolution'
     ];
 
     /*
@@ -118,7 +122,8 @@ class PreviewOptions extends PageOptions
     protected static $getters = [
         'width' => 'getWidth',
         'height' => 'getHeight',
-        'format' => 'getFormat'
+        'format' => 'getFormat',
+        'resolution' => 'getResolution'
     ];
 
     /*
@@ -197,6 +202,7 @@ class PreviewOptions extends PageOptions
         $this->container['width'] = isset($data['width']) ? $data['width'] : null;
         $this->container['height'] = isset($data['height']) ? $data['height'] : null;
         $this->container['format'] = isset($data['format']) ? $data['format'] : null;
+        $this->container['resolution'] = isset($data['resolution']) ? $data['resolution'] : null;
     }
 
     /*
@@ -225,6 +231,9 @@ class PreviewOptions extends PageOptions
             );
         }
 
+        if ($this->container['resolution'] === null) {
+            $invalidProperties[] = "'resolution' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -251,6 +260,9 @@ class PreviewOptions extends PageOptions
         }
         $allowedValues = $this->getFormatAllowableValues();
         if (!in_array($this->container['format'], $allowedValues)) {
+            return false;
+        }
+        if ($this->container['resolution'] === null) {
             return false;
         }
         return true;
@@ -330,6 +342,30 @@ class PreviewOptions extends PageOptions
         }
 			
         $this->container['format'] = $format;
+
+        return $this;
+    }
+
+    /*
+     * Gets resolution
+     *
+     * @return int
+     */
+    public function getResolution()
+    {
+        return $this->container['resolution'];
+    }
+
+    /*
+     * Sets resolution
+     *
+     * @param int $resolution Preview image resolution (DPI). When 0, the default resolution is used.
+     *
+     * @return $this
+     */
+    public function setResolution($resolution)
+    {
+        $this->container['resolution'] = $resolution;
 
         return $this;
     }
